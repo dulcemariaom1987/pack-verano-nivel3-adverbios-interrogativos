@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pack verano jugando en inglés - Nivel 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{color-scheme:dark;--bg:#0b1030;--card:#161c4a;--pink:#ff4fd8;--cy:#27e8ff;--yel:#ffd23f;--grn:#5dff8a;--org:#ff8a3d;--red:#ff5a6e;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100%;color:#fff;overflow-x:hidden;font:500 1.05rem/1.5 'Baloo 2','Trebuchet MS',system-ui,sans-serif;-webkit-font-smoothing:antialiased;background:radial-gradient(circle at 12% 0,#43207f 0,transparent 45%),radial-gradient(circle at 92% 18%,#0b6283 0,transparent 40%),var(--bg)}
+.float{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.float span{position:absolute;bottom:-60px;opacity:.35;animation:up linear infinite}
+@keyframes up{to{transform:translateY(-115vh) rotate(40deg)}}
+header,main,footer{position:relative;z-index:1}
+.hero{text-align:center;padding:1.2rem .8rem .2rem}
+.neon{margin:0;font-weight:800;line-height:1.02;font-size:clamp(2.3rem,9vw,4.8rem);letter-spacing:.02em}
+.n1,.n2{display:block;color:#fff;animation:glow 3s ease-in-out infinite alternate}
+.n1{text-shadow:0 0 2px #fff,0 0 8px var(--pink),0 0 18px var(--pink),0 0 36px #c03cff}
+.n2{text-shadow:0 0 2px #fff,0 0 8px var(--cy),0 0 18px var(--cy),0 0 36px #3c7bff}
+@keyframes glow{to{filter:brightness(1.15)}}
+.sub{margin:.5rem 0 0;font-size:clamp(1rem,3.6vw,1.5rem);font-weight:700;color:var(--yel);text-shadow:0 0 10px #ffd23f88}
+.menu{display:flex;gap:.5rem;overflow-x:auto;padding:.8rem;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+@media(min-width:900px){.menu{flex-wrap:wrap;justify-content:center}}
+.mbtn{flex:0 0 auto;min-width:78px;display:flex;flex-direction:column;align-items:center;padding:.35rem .6rem;border-radius:16px;border:2px solid #ffffff33;background:#ffffff14;color:#fff;font:inherit;font-size:.8rem;cursor:pointer;scroll-snap-align:center;transition:.2s}
+.mbtn i{font-style:normal;font-size:1.5rem;line-height:1.2}
+.mbtn:hover{background:#ffffff2a}
+.mbtn.on{background:linear-gradient(135deg,var(--pink),var(--org));border-color:#fff;transform:translateY(-2px) scale(1.06)}
+.mbtn.done b{color:var(--grn)}
+.card{max-width:880px;margin:.4rem auto 1rem;padding:1.2rem;width:calc(100% - 1.2rem);background:var(--card);border:2px solid #ffffff22;border-radius:24px;box-shadow:0 10px 40px #0009;animation:in .45s}
+@keyframes in{from{opacity:0;transform:translateY(14px)}}
+h2{margin:0 0 .3rem;color:var(--yel);font-size:clamp(1.5rem,5vw,2rem)}
+.ins{margin:0 0 1rem;color:#d6dbff}
+.btn,.opt{font:inherit;font-weight:700;border:0;border-radius:14px;padding:.55rem 1rem;cursor:pointer;color:#10153d;background:linear-gradient(135deg,var(--cy),#7cf);box-shadow:0 4px 0 #0a5d8a;transition:transform .12s}
+.btn:active,.opt:active{transform:translateY(3px);box-shadow:0 1px 0 #0a5d8a}
+.btn.go{background:linear-gradient(135deg,var(--grn),#c7ff5d);box-shadow:0 4px 0 #2a8a45}
+.btn.big{font-size:1.15rem}
+.btn:disabled{opacity:.5;cursor:default}
+.btn:focus-visible,.opt:focus-visible,.mbtn:focus-visible,.k:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.row{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin:.8rem 0}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.6rem}
+.opt{background:#ffffff1c;color:#fff;box-shadow:0 4px 0 #0006;border:2px solid #ffffff33}
+.opt.sel{background:var(--pink);border-color:#fff}
+.opt.good{background:var(--grn);color:#10331a;border-color:#fff}
+.opt.bad{background:var(--red);animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.q{font-size:1.35rem;text-align:center;margin:.6rem 0 1rem}
+.prog{color:var(--cy);margin:0;text-align:center}
+.fb{min-height:1.6em;text-align:center;font-weight:700;margin:.6rem 0}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;padding:.5rem;min-height:3.2rem;border-radius:14px;background:#ffffff10}
+.chip{font:inherit;font-weight:700;border:0;border-radius:12px;padding:.4rem .8rem;background:var(--yel);color:#2b2300;cursor:pointer;box-shadow:0 3px 0 #a07d00}
+.ans{border:2px dashed var(--cy)}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.8rem}
+.vc{padding:.9rem;text-align:center;border-radius:18px;background:#ffffff12;border:2px solid #ffffff2a;transition:.2s}
+.vc:hover{transform:translateY(-4px) rotate(-1deg)}
+.vc .e{font-size:2.4rem}.vc h3{margin:0;font-size:1.7rem;color:var(--cy)}.vc p{margin:.2rem 0}.vc .row{margin:.4rem 0 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:.6rem 1.2rem}
+.two .opt{padding:.7rem .4rem}
+.opt.done{background:var(--grn);color:#10331a;opacity:.85;pointer-events:none}
+.wl{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-bottom:.8rem}
+.wl span{padding:.2rem .8rem;border-radius:99px;background:#ffffff1c;font-weight:800;letter-spacing:.06em}
+.wl span.done{background:var(--grn);color:#10331a;text-decoration:line-through}
+.ws{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;max-width:430px;margin:auto;touch-action:manipulation}
+.ws button{aspect-ratio:1;border:0;border-radius:8px;background:#ffffff1c;color:#fff;font:800 clamp(.9rem,4.4vw,1.4rem) inherit;font-family:inherit;cursor:pointer;padding:0}
+.ws button.st{background:var(--pink)}
+.ws button.found{background:var(--grn);color:#10331a}
+.mg{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;max-width:520px;margin:auto}
+.mc{aspect-ratio:1;perspective:600px;border:0;background:none;padding:0;cursor:pointer;font:inherit}
+.mc div{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.mc.up div{transform:rotateY(180deg)}
+.mc span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;font-weight:800;padding:.2rem;line-height:1.1}
+.mc .bk{background:linear-gradient(135deg,var(--pink),var(--org));font-size:2rem}
+.mc .fr{transform:rotateY(180deg);background:#fff;color:#10153d;font-size:clamp(.8rem,3.4vw,1.15rem)}
+.mc.ok .fr{background:var(--grn)}
+.stage{position:relative;max-width:310px;margin:0 auto;padding:6px}
+.halo{position:absolute;inset:3%;border-radius:50%;background:conic-gradient(#ff4fd8,#ffd23f,#5dff8a,#27e8ff,#b06bff,#ff4fd8);filter:blur(22px);opacity:0;transition:opacity .6s;animation:spin 5s linear infinite}
+.stage.win .halo{opacity:.85}
+.aura{position:absolute;inset:8% 4%;border-radius:50%;background:radial-gradient(circle,var(--ac,#27e8ff88),transparent 65%);animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.12);opacity:.7}}
+.pop{position:relative;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 0 12px #ff4fd899)}
+.pop.hit{animation:shake .5s}
+.fx{position:absolute;inset:0;pointer-events:none}
+.fx span{position:absolute;left:50%;top:45%;font-size:22px;animation:burst 1s ease-out forwards}
+@keyframes burst{to{transform:translate(var(--dx),var(--dy)) scale(.4) rotate(360deg);opacity:0}}
+.pop #body{animation:bob 2.4s ease-in-out infinite;transform-origin:110px 235px}
+@keyframes bob{50%{transform:rotate(2deg) scale(1.01)}}
+#cut,#rim{transition:transform 1.2s cubic-bezier(.3,.7,.3,1)}
+#pud{transform-origin:110px 292px;transition:transform 1.2s cubic-bezier(.3,.7,.3,1)}
+#sunw{transform-origin:190px 32px;transition:transform .8s}
+#sun{transform-origin:190px 32px;animation:spin 14s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.drop,.tongue,.beam,.rip{opacity:0}
+.melting .drop{animation:drip 1.3s ease-in infinite}
+.melting .tongue{animation:wob 1.6s ease-in-out infinite}
+.tongue{transform-box:fill-box;transform-origin:top}
+@keyframes wob{50%{transform:scaleY(1.6)}}
+@keyframes drip{0%{transform:translateY(0) scale(.5);opacity:0}15%{transform:translateY(2px) scale(1);opacity:1}100%{transform:translateY(40px);opacity:.9}}
+.melting .rip{animation:rip 1.3s ease-out infinite}
+.rip{transform-box:fill-box;transform-origin:center}
+@keyframes rip{0%{transform:scale(.2);opacity:.9}100%{transform:scale(1.7);opacity:0}}
+.beam{stroke:#ffd23f;stroke-width:3;stroke-dasharray:4 7;stroke-linecap:round;fill:none}
+.melting .beam{opacity:.9;animation:dash .6s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-22}}
+.cold{animation:rise 3s ease-in infinite}
+.melting .cold{display:none}
+@keyframes rise{0%{transform:translateY(24px) scale(.6);opacity:0}30%{opacity:.8}100%{transform:translateY(-34px) scale(1.5);opacity:0}}
+.tw{animation:tw 1.6s ease-in-out infinite;font-size:16px}
+@keyframes tw{50%{opacity:.2;transform:scale(1.5)}}
+.sweep{animation:sweep 3.2s ease-in-out infinite}
+@keyframes sweep{0%{transform:translateX(0)}60%,100%{transform:translateX(230px)}}
+.eye{transform-box:fill-box;transform-origin:center;animation:blink 4s infinite}
+@keyframes blink{93%,100%{transform:scaleY(.1)}}
+.sweat,.tear,.shades{opacity:0}
+.sweaty .sweat{opacity:1;animation:sweat 1.3s ease-in infinite}
+.crying .tear{opacity:1;animation:sweat 1s ease-in infinite}
+@keyframes sweat{to{transform:translateY(16px);opacity:0}}
+.shades{transform:translateY(-30px);transition:opacity .4s,transform .6s}
+.pop.win .shades{opacity:1;transform:none}
+.pop.win #body{animation:party .5s ease-in-out infinite}
+@keyframes party{50%{transform:translateY(-10px) rotate(-4deg)}}
+.word{display:flex;justify-content:center;gap:.4rem;margin:.6rem 0;flex-wrap:wrap}
+.word i{width:1.2rem}
+.word b{width:2.1rem;height:2.6rem;display:flex;align-items:center;justify-content:center;font-size:1.6rem;border-bottom:4px solid var(--cy);color:var(--yel)}
+.keys{display:flex;flex-wrap:wrap;gap:.3rem;justify-content:center}
+.k{width:2.3rem;height:2.5rem;border:0;border-radius:10px;font:800 1.1rem inherit;font-family:inherit;cursor:pointer;background:#ffffff22;color:#fff}
+.k.hit{background:var(--grn);color:#10331a}.k.miss{background:var(--red);opacity:.6}
+.k:disabled{cursor:default}
+.hint{text-align:center;color:var(--cy);margin:.4rem 0}
+.foot{display:flex;justify-content:space-between;max-width:880px;margin:0 auto 1.5rem;padding:0 .6rem}
+.res{text-align:center}.res .big{font-size:3.5rem}
+.chk{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center}
+.chk li{padding:.2rem .8rem;border-radius:99px;background:#ffffff1c}.chk li.y{background:var(--grn);color:#10331a}
+.conf{position:fixed;top:-40px;z-index:5;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg)}}
+@media(max-width:480px){.k{width:2rem;height:2.3rem}.card{padding:.9rem}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important}}
+</style>
+</head>
+<body>
+<div class="float" id="float" aria-hidden="true"></div>
+<header class="hero">
+  <h1 class="neon"><span class="n1">Pack verano</span><span class="n2">jugando en inglés</span></h1>
+  <p class="sub">Nivel 3 · Adverbios interrogativos (Interrogative adverbs)</p>
+</header>
+<nav class="menu" id="menu" aria-label="Secciones de la clase"></nav>
+<main><section class="card" id="card" aria-live="polite"></section></main>
+<footer class="foot">
+  <button class="btn" id="prev">⬅ Anterior</button>
+  <button class="btn go" id="next">Siguiente ➜</button>
+</footer>
+
+<script>
+'use strict';
+
+/* ---------- Utilidades ---------- */
+const $ = (s, r = document) => r.querySelector(s);
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; };
+const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+/* ---------- Servicio de sonidos (efectos) ---------- */
+const Sfx = (() => {
+  let ctx;
+  const tone = (f, d, type = 'sine', at = 0) => {
+    try {
+      ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+      const o = ctx.createOscillator(), g = ctx.createGain(), s = ctx.currentTime + at;
+      o.type = type; o.frequency.value = f;
+      g.gain.setValueAtTime(.18, s); g.gain.exponentialRampToValueAtTime(.001, s + d);
+      o.connect(g); g.connect(ctx.destination); o.start(s); o.stop(s + d);
+    } catch (e) { /* sin audio disponible */ }
+  };
+  const seq = (fs, type) => fs.forEach((f, i) => tone(f, .18, type, i * .1));
+  return {
+    ok: () => seq([660, 880, 1100], 'triangle'),
+    bad: () => seq([240, 170], 'sawtooth'),
+    pop: () => tone(520, .08, 'square'),
+    flip: () => tone(760, .08, 'triangle'),
+    win: () => seq([523, 659, 784, 1047, 1319], 'triangle')
+  };
+})();
+
+/* ---------- Servicio de voz (pronunciación) ---------- */
+const Voice = {
+  pick(lang) {
+    const vs = window.speechSynthesis.getVoices() || [];
+    return vs.find(v => v.lang.replace('_', '-') === lang) || vs.find(v => v.lang.slice(0, 2) === lang.slice(0, 2));
+  },
+  say(text, lang = 'en-US', rate = .9) {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = lang; u.rate = rate;
+    const v = this.pick(lang); if (v) u.voice = v;
+    window.speechSynthesis.speak(u);
+  }
+};
+if ('speechSynthesis' in window) window.speechSynthesis.onvoiceschanged = () => {};
+
+/* ---------- Contenido (datos separados de la lógica) ---------- */
+const VOCAB = [
+  { en: 'Where', es: '¿Dónde?', e: '📍', ex: 'Where do you live?', exEs: '¿Dónde vives?' },
+  { en: 'When', es: '¿Cuándo?', e: '📅', ex: 'When is your birthday?', exEs: '¿Cuándo es tu cumpleaños?' },
+  { en: 'Why', es: '¿Por qué?', e: '🤔', ex: 'Why are you happy?', exEs: '¿Por qué estás feliz?' },
+  { en: 'How', es: '¿Cómo?', e: '🛠️', ex: 'How are you?', exEs: '¿Cómo estás?' },
+  { en: 'How many', es: '¿Cuántos?', e: '🔢', ex: 'How many dogs do you have?', exEs: '¿Cuántos perros tienes?' },
+  { en: 'How much', es: '¿Cuánto?', e: '💰', ex: 'How much is the ice cream?', exEs: '¿Cuánto cuesta el helado?' },
+  { en: 'How old', es: '¿Qué edad?', e: '🎂', ex: 'How old are you?', exEs: '¿Cuántos años tienes?' }
+];
+const QUIZ = [
+  { q: '“___ is your birthday?” → “It is in July.”', o: ['Where', 'When', 'Why', 'How'], a: 1 },
+  { q: '“___ are you sad?” → “Because I am tired.”', o: ['Why', 'Where', 'When', 'How many'], a: 0 },
+  { q: '“___ do you go to school?” → “By bus.”', o: ['Why', 'When', 'How', 'How old'], a: 2 },
+  { q: '“___ is my book?” → “It is on the table.”', o: ['How much', 'Where', 'Why', 'When'], a: 1 },
+  { q: '“___ apples do you have?” → “I have three.”', o: ['How much', 'How old', 'Where', 'How many'], a: 3 }
+];
+const LISTEN = [
+  { say: 'Where is the beach?', q: 'Escucha y elige la palabra con la que empieza la pregunta.', o: ['Where', 'When', 'Why', 'How'], a: 0 },
+  { say: 'When is the party?', q: 'Escucha y elige la palabra con la que empieza la pregunta.', o: ['Why', 'When', 'Where', 'How'], a: 1 },
+  { say: 'Why are you laughing?', q: 'Escucha y elige la palabra con la que empieza la pregunta.', o: ['How', 'When', 'Where', 'Why'], a: 3 },
+  { say: 'How are you today?', q: 'Escucha y elige la palabra con la que empieza la pregunta.', o: ['How', 'Where', 'Why', 'When'], a: 0 }
+];
+const TF = [
+  { q: '“Where” se usa para preguntar por un <b>lugar</b>.', o: ['Verdadero ✅', 'Falso ❌'], a: 0 },
+  { q: '“Why” se usa para preguntar la <b>edad</b>.', o: ['Verdadero ✅', 'Falso ❌'], a: 1 },
+  { q: '“How many” se usa con cosas que se pueden <b>contar</b>.', o: ['Verdadero ✅', 'Falso ❌'], a: 0 },
+  { q: '“When” se usa para preguntar por una <b>persona</b>.', o: ['Verdadero ✅', 'Falso ❌'], a: 1 },
+  { q: '“How much” sirve para preguntar por un <b>precio</b>.', o: ['Verdadero ✅', 'Falso ❌'], a: 0 }
+];
+const SENTENCES = [
+  { w: 'where do you live', es: '¿Dónde vives?' },
+  { w: 'when is your birthday', es: '¿Cuándo es tu cumpleaños?' },
+  { w: 'how old are you', es: '¿Cuántos años tienes?' },
+  { w: 'why are you happy', es: '¿Por qué estás feliz?' }
+];
+const SEARCH_WORDS = ['WHERE', 'WHEN', 'WHY', 'HOW', 'MANY', 'MUCH'];
+const POP_WORDS = shuffle(VOCAB.map(v => ({ w: v.en.toUpperCase(), h: `${v.e} significa ${v.es}` })));
+
+/* ---------- Motor reutilizable de preguntas de opción (Quiz, Escucha, V o F) ---------- */
+class Quiz {
+  constructor(root, items, id) { Object.assign(this, { root, items, id, i: 0, hits: 0 }); this.show(); }
+  show() {
+    const it = this.items[this.i], r = this.root;
+    if (!it) return this.end();
+    this.sel = -1; this.first = true;
+    r.innerHTML = `<p class="prog">Pregunta ${this.i + 1} de ${this.items.length}</p>
+      ${it.say ? '<div class="row"><button class="btn big" data-s="1">🔊 Escuchar</button><button class="btn" data-s=".6">🐢 Más lento</button></div>' : ''}
+      <h3 class="q">${it.q}</h3><div class="opts"></div><p class="fb"></p>
+      <div class="row"><button class="btn go" data-chk>✅ Comprobar</button><button class="btn" data-nxt hidden>Siguiente ➜</button></div>`;
+    const box = $('.opts', r);
+    it.o.forEach((t, k) => {
+      const b = el('button', 'opt', t);
+      b.onclick = () => { this.sel = k; [...box.children].forEach(x => { x.classList.remove('bad'); x.classList.toggle('sel', x === b); }); Sfx.pop(); };
+      box.append(b);
+    });
+    r.querySelectorAll('[data-s]').forEach(b => b.onclick = () => Voice.say(it.say, 'en-US', .9 * b.dataset.s));
+    $('[data-chk]', r).onclick = () => this.check(it);
+    $('[data-nxt]', r).onclick = () => { this.i++; this.show(); };
+  }
+  check(it) {
+    const r = this.root, fb = $('.fb', r), btn = $('.opts', r).children[this.sel];
+    if (this.sel < 0) { fb.textContent = 'Elige una opción primero 😉'; return; }
+    if (this.sel === it.a) {
+      btn.className = 'opt good'; fb.textContent = '¡Correcto! 🎉'; Sfx.ok();
+      if (this.first) this.hits++;
+      [...$('.opts', r).children].forEach(b => b.disabled = true);
+      $('[data-chk]', r).hidden = true; $('[data-nxt]', r).hidden = false;
+      if (this.i === this.items.length - 1) $('[data-nxt]', r).textContent = 'Ver resultado 🏁';
+    } else {
+      this.first = false; btn.className = 'opt bad'; fb.textContent = 'Casi… ¡inténtalo otra vez! 💪'; Sfx.bad();
+    }
+  }
+  end() {
+    this.root.innerHTML = `<div class="res"><div class="big">${'⭐'.repeat(Math.max(1, Math.round(this.hits / this.items.length * 3)))}</div>
+      <h3>¡Terminaste! Acertaste ${this.hits} de ${this.items.length} a la primera</h3>
+      <div class="row"><button class="btn" data-again>🔁 Jugar otra vez</button></div></div>`;
+    Sfx.win(); App.finish(this.id);
+    $('[data-again]', this.root).onclick = () => { this.i = 0; this.hits = 0; this.show(); };
+  }
+}
+
+/* ---------- Secciones ---------- */
+function intro(r) {
+  const txt = 'Los adverbios interrogativos son palabras que usamos al comienzo de una pregunta para pedir información. Cada uno pregunta algo distinto. Where pregunta por el lugar, When por el tiempo, Why por la razón y How por la manera. Con How many preguntamos por cantidades que se cuentan, con How much por precios y cantidades que no se cuentan, y con How old por la edad. Después de la palabra interrogativa va un verbo, por ejemplo: Where do you live? Hoy jugaremos durante treinta minutos para aprenderlas. ¡Vamos!';
+  r.innerHTML = `<p>${txt.replace(/(Where|When|Why|How many|How much|How old|How)(?= p|,| por|:| pre| \w+\?)/g, '<b style="color:var(--cy)">$1</b>')}</p>
+    <div class="row"><button class="btn big" data-say>🔊 Escuchar la explicación</button><button class="btn go big" data-go>🚀 ¡Empezar a jugar!</button></div>`;
+  $('[data-say]', r).onclick = () => Voice.say(txt, 'es-MX', 1);
+  $('[data-go]', r).onclick = () => { Sfx.ok(); App.go(1); };
+}
+
+function vocab(r) {
+  const g = el('div', 'vgrid');
+  VOCAB.forEach(v => {
+    const c = el('div', 'vc', `<div class="e">${v.e}</div><h3>${v.en}</h3><p>${v.es}</p><p><i>${v.ex}</i><br><small>${v.exEs}</small></p>
+      <div class="row"><button class="btn" data-w>🔊 Palabra</button><button class="btn" data-x>🔊 Frase</button></div>`);
+    $('[data-w]', c).onclick = () => { Voice.say(v.en); Sfx.pop(); };
+    $('[data-x]', c).onclick = () => Voice.say(v.ex);
+    g.append(c);
+  });
+  r.append(g);
+  App.finish('vocab');
+}
+
+function match(r) {
+  let pend = null, found = 0;
+  r.innerHTML = '<div class="two"></div><p class="fb"></p><div class="row"><button class="btn" data-re>🔁 Reiniciar</button></div>';
+  const wrap = $('.two', r), fb = $('.fb', r);
+  const left = VOCAB.slice(0, 6).map(v => ({ id: v.en, t: v.en, side: 0 }));
+  const right = shuffle(VOCAB.slice(0, 6).map(v => ({ id: v.en, t: v.es, side: 1 })));
+  const lc = el('div'), rc = el('div');
+  [lc, rc].forEach(c => { c.style.cssText = 'display:grid;gap:.6rem'; });
+  const pick = (b, o) => {
+    Sfx.pop();
+    if (!pend || pend.o.side === o.side) { if (pend) pend.b.classList.remove('sel'); pend = { b, o }; b.classList.add('sel'); return; }
+    const p = pend; pend = null; p.b.classList.remove('sel');
+    if (p.o.id === o.id) {
+      [p.b, b].forEach(x => x.classList.add('done')); Sfx.ok(); Voice.say(o.id); found++;
+      fb.textContent = found === 6 ? '¡Todas las parejas! 🎉' : '¡Pareja correcta! ✅';
+      if (found === 6) { Sfx.win(); App.finish('match'); }
+    } else { [p.b, b].forEach(x => { x.classList.add('bad'); setTimeout(() => x.classList.remove('bad'), 450); }); Sfx.bad(); fb.textContent = 'Esa pareja no es… ¡prueba otra! 💪'; }
+  };
+  [...left, ...right].forEach(o => { const b = el('button', 'opt', o.t); b.onclick = () => pick(b, o); (o.side ? rc : lc).append(b); });
+  wrap.append(lc, rc);
+  $('[data-re]', r).onclick = () => { r.innerHTML = ''; match(r); };
+}
+
+function scramble(r) {
+  let n = 0, bank, ans;
+  const draw = () => {
+    const s = SENTENCES[n];
+    if (!s) { r.innerHTML = '<div class="res"><div class="big">🏆</div><h3>¡Ordenaste todas las preguntas!</h3><div class="row"><button class="btn" data-re>🔁 Jugar otra vez</button></div></div>'; Sfx.win(); App.finish('scr'); $('[data-re]', r).onclick = () => { n = 0; init(); }; return; }
+    r.innerHTML = `<p class="prog">Frase ${n + 1} de ${SENTENCES.length}</p><p class="q">${s.es}</p>
+      <div class="chips ans"></div><p class="hint">👆 Toca las palabras en orden</p><div class="chips bank"></div><p class="fb"></p>
+      <div class="row"><button class="btn go" data-chk>✅ Comprobar</button><button class="btn" data-clr>🧹 Borrar</button><button class="btn" data-nx hidden>Siguiente ➜</button></div>`;
+    const put = (box, list, from, to) => {
+      box.innerHTML = '';
+      list.forEach(w => { const c = el('button', 'chip', w.t); c.onclick = () => { from.splice(from.indexOf(w), 1); to.push(w); Sfx.pop(); draw2(); }; box.append(c); });
+    };
+    const draw2 = () => { put($('.bank', r), bank, bank, ans); put($('.ans', r), ans, ans, bank); };
+    draw2();
+    $('[data-clr]', r).onclick = () => { bank.push(...ans.splice(0)); draw2(); };
+    $('[data-chk]', r).onclick = () => {
+      const fb = $('.fb', r);
+      if (ans.map(w => w.t).join(' ') === s.w) { fb.textContent = '¡Perfecto! 🎉'; Sfx.ok(); Voice.say(s.w + '?'); $('[data-chk]', r).hidden = true; $('[data-nx]', r).hidden = false; }
+      else { fb.textContent = 'Todavía no… ¡revisa el orden! 🔄'; Sfx.bad(); }
+    };
+    $('[data-nx]', r).onclick = () => { n++; init(); };
+  };
+  const init = () => {
+    const s = SENTENCES[n];
+    if (s) { const ws = s.w.split(' ').map((t, i) => ({ t, i })); do { bank = shuffle(ws); } while (bank.map(w => w.t).join(' ') === s.w); ans = []; }
+    draw();
+  };
+  init();
+}
+
+function wordSearch(r) {
+  const N = 10;
+  const build = () => {
+    for (;;) {
+      const g = Array.from({ length: N }, () => Array(N).fill(''));
+      const placed = SEARCH_WORDS.every(w => {
+        for (let t = 0; t < 200; t++) {
+          const v = Math.random() < .5, y = Math.floor(Math.random() * (v ? N - w.length + 1 : N)), x = Math.floor(Math.random() * (v ? N : N - w.length + 1));
+          const cells = [...w].map((_, k) => v ? [y + k, x] : [y, x + k]);
+          if (cells.every(([cy, cx]) => !g[cy][cx])) { cells.forEach(([cy, cx], k) => { g[cy][cx] = w[k]; }); return true; }
+        }
+        return false;
+      });
+      if (placed) return g.map(row => row.map(c => c || String.fromCharCode(65 + Math.floor(Math.random() * 26))));
+    }
+  };
+  const grid = build(), left = new Set(SEARCH_WORDS);
+  r.innerHTML = `<div class="wl">${SEARCH_WORDS.map(w => `<span data-w="${w}">${w}</span>`).join('')}</div>
+    <p class="hint">👆 Toca la primera y la última letra de la palabra (en línea recta)</p><div class="ws"></div><p class="fb"></p>
+    <div class="row"><button class="btn go" data-chk>✅ Comprobar</button><button class="btn" data-re>🔁 Nuevo tablero</button></div>`;
+  const board = $('.ws', r), fb = $('.fb', r), cells = [];
+  let start = null;
+  grid.forEach((row, y) => row.forEach((ch, x) => { const b = el('button', '', ch); b.dataset.y = y; b.dataset.x = x; cells.push(b); board.append(b); }));
+  const at = (y, x) => cells[y * N + x];
+  const path = (a, b) => {
+    if (a.y !== b.y && a.x !== b.x) return null;
+    const len = Math.max(Math.abs(a.y - b.y), Math.abs(a.x - b.x)) + 1, dy = Math.sign(b.y - a.y), dx = Math.sign(b.x - a.x);
+    return Array.from({ length: len }, (_, k) => at(a.y + dy * k, a.x + dx * k));
+  };
+  board.onclick = e => {
+    const b = e.target.closest('button'); if (!b) return;
+    const p = { y: +b.dataset.y, x: +b.dataset.x }; Sfx.pop();
+    if (!start) { start = { ...p, b }; b.classList.add('st'); return; }
+    start.b.classList.remove('st');
+    const line = path(start, p); start = null;
+    if (!line) { fb.textContent = 'Debe ser en línea recta: horizontal o vertical ↔ ↕'; Sfx.bad(); return; }
+    const w = line.map(c => c.textContent).join(''), rev = [...w].reverse().join('');
+    const hit = [w, rev].find(s => left.has(s));
+    if (hit) {
+      line.forEach(c => c.classList.add('found')); left.delete(hit); $(`[data-w="${hit}"]`, r).classList.add('done');
+      Sfx.ok(); Voice.say(hit.toLowerCase()); fb.textContent = '¡La encontraste! 🎉';
+      if (!left.size) { fb.textContent = '¡Encontraste todas las palabras! 🏆'; Sfx.win(); App.finish('ws'); }
+    } else { fb.textContent = 'Esa no es una palabra de la lista 🔍'; Sfx.bad(); }
+  };
+  $('[data-chk]', r).onclick = () => { fb.textContent = left.size ? `Llevas ${SEARCH_WORDS.length - left.size} de ${SEARCH_WORDS.length}. ¡Sigue buscando! 🔎` : '¡Completaste la sopa de letras! 🏆'; };
+  $('[data-re]', r).onclick = () => { r.innerHTML = ''; wordSearch(r); };
+}
+
+function memory(r) {
+  const pairs = VOCAB.slice(0, 6);
+  const deck = shuffle(pairs.flatMap(v => [{ id: v.en, html: v.en, say: true }, { id: v.en, html: `${v.e}<br>${v.es}` }]));
+  let open = [], moves = 0, matched = 0, lock = false;
+  r.innerHTML = '<p class="prog">Movimientos: <span id="mv">0</span></p><div class="mg"></div><p class="fb"></p><div class="row"><button class="btn" data-re>🔁 Reiniciar</button></div>';
+  const board = $('.mg', r), fb = $('.fb', r);
+  deck.forEach(d => {
+    const c = el('button', 'mc', `<div><span class="bk">☀️</span><span class="fr">${d.html}</span></div>`);
+    c.setAttribute('aria-label', 'Carta');
+    c.onclick = () => {
+      if (lock || c.classList.contains('up')) return;
+      c.classList.add('up'); Sfx.flip(); if (d.say) Voice.say(d.id);
+      open.push({ c, d });
+      if (open.length < 2) return;
+      moves++; $('#mv', r).textContent = moves; lock = true;
+      const [a, b] = open; open = [];
+      if (a.d.id === b.d.id) {
+        [a.c, b.c].forEach(x => x.classList.add('ok')); Sfx.ok(); matched++; lock = false; fb.textContent = '¡Pareja encontrada! ✨';
+        if (matched === pairs.length) { fb.textContent = `¡Ganaste en ${moves} movimientos! 🏆`; Sfx.win(); App.finish('mem'); }
+      } else setTimeout(() => { [a.c, b.c].forEach(x => x.classList.remove('up')); lock = false; fb.textContent = ''; }, 900);
+    };
+    board.append(c);
+  });
+  $('[data-re]', r).onclick = () => { r.innerHTML = ''; memory(r); };
+}
+
+const BODY = 'M55 85A55 55 0 0 1 165 85V225Q165 235 155 235H65Q55 235 55 225Z';
+const WAVE = 'M-10 0Q10 -14 30 0T70 0T110 0T150 0T190 0T230 0';
+const SPRINKLES = [[72, 62, 20, '#27e8ff'], [100, 48, -30, '#fff'], [132, 58, 50, '#5dff8a'], [152, 95, 10, '#27e8ff'], [70, 115, 70, '#fff'], [148, 125, -20, '#ffd23f'], [142, 205, 30, '#ffd23f'], [75, 205, -40, '#27e8ff'], [108, 222, 15, '#5dff8a'], [88, 200, 60, '#fff'], [128, 88, -50, '#ffd23f']];
+const DRIP_X = [70, 86, 134, 150];
+const POP_SVG = `<svg viewBox="0 0 220 320" class="pop" role="img" aria-label="Paleta derritiéndose">
+<defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff4fd8"/><stop offset=".5" stop-color="#ff8a3d"/><stop offset="1" stop-color="#ffd23f"/></linearGradient>
+<radialGradient id="cg"><stop offset="0" stop-color="#e9f8ff" stop-opacity=".9"/><stop offset="1" stop-color="#e9f8ff" stop-opacity="0"/></radialGradient>
+<clipPath id="pc"><path id="cut" d="${WAVE}V330H-10Z"/></clipPath><clipPath id="bc"><path d="${BODY}"/></clipPath></defs>
+<g id="sunw"><g id="sun"><circle id="disc" cx="190" cy="32" r="14" fill="#ffd23f"/>${[0, 45, 90, 135, 180, 225, 270, 315].map(a => `<rect x="188" y="5" width="4" height="9" rx="2" fill="#ffd23f" transform="rotate(${a} 190 32)"/>`).join('')}</g>
+<path class="beam" d="M178 44L148 100"/><path class="beam" d="M186 48L170 125" style="animation-delay:.3s"/></g>
+<text class="tw" x="14" y="50">✨</text><text class="tw" x="22" y="180" style="animation-delay:.5s">✨</text><text class="tw" x="186" y="160" style="animation-delay:1s">✨</text>
+<g id="pud"><ellipse cx="110" cy="292" rx="90" ry="12" fill="url(#pg)"/><ellipse cx="82" cy="288" rx="24" ry="3" fill="#fff" opacity=".4"/>
+<ellipse class="rip" cx="110" cy="292" rx="26" ry="5" fill="none" stroke="#fff" stroke-width="2"/><ellipse class="rip" cx="110" cy="292" rx="26" ry="5" fill="none" stroke="#fff" stroke-width="2" style="animation-delay:.65s"/></g>
+<rect x="98" y="215" width="24" height="80" rx="12" fill="#e9b36b"/>
+<g id="body"><g clip-path="url(#pc)">
+<path d="${BODY}" fill="url(#pg)"/>
+<g clip-path="url(#bc)">${SPRINKLES.map(([x, y, a, c]) => `<rect x="${x}" y="${y}" width="9" height="3.5" rx="1.7" fill="${c}" transform="rotate(${a} ${x} ${y})"/>`).join('')}
+<path d="M72 80V215" stroke="#fff" stroke-opacity=".35" stroke-width="9" stroke-linecap="round"/>
+<polygon class="sweep" points="30,20 56,20 36,260 10,260" fill="#fff" opacity=".28"/>
+<path id="rim" d="${WAVE}" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="4"/></g>
+${DRIP_X.map((x, i) => `<rect class="tongue" x="${x - 6}" y="224" width="12" height="20" rx="6" fill="#ff8a3d" style="animation-delay:${i * .3}s"/>`).join('')}
+<g><circle class="eye" cx="92" cy="150" r="7" fill="#fff"/><circle class="eye" cx="128" cy="150" r="7" fill="#fff"/><circle cx="93" cy="151" r="3.5" fill="#222"/><circle cx="129" cy="151" r="3.5" fill="#222"/>
+<circle cx="80" cy="170" r="6" fill="#ff4fd8" opacity=".5"/><circle cx="140" cy="170" r="6" fill="#ff4fd8" opacity=".5"/>
+<path id="mouth" d="M94 172Q110 192 126 172" fill="none" stroke="#222" stroke-width="4" stroke-linecap="round"/>
+<path class="sweat" d="M152 122q-6 10 0 14q6-4 0-14" fill="#7fdcff"/><path class="tear" d="M86 160q-5 9 0 12q5-3 0-12" fill="#7fdcff"/><path class="tear" d="M134 160q-5 9 0 12q5-3 0-12" fill="#7fdcff"/>
+<g class="shades"><rect x="78" y="141" width="28" height="18" rx="7" fill="#111"/><rect x="114" y="141" width="28" height="18" rx="7" fill="#111"/><rect x="104" y="146" width="12" height="3" fill="#111"/><path d="M83 146h10" stroke="#fff" stroke-opacity=".6" stroke-width="2.5" stroke-linecap="round"/></g></g></g></g>
+<g id="drops">${DRIP_X.map((x, i) => `<circle class="drop" cx="${x}" cy="250" r="5" fill="#ff8a3d" style="animation-delay:${i * .33}s"/>`).join('')}</g>
+${[80, 110, 140].map((x, i) => `<circle class="cold" cx="${x}" cy="45" r="14" fill="url(#cg)" style="animation-delay:${i * 1}s"/>`).join('')}</svg>`;
+
+function burst(host, list, n) {
+  for (let i = 0; i < n; i++) {
+    const s = el('span', '', list[i % list.length]), a = Math.random() * 6.28, d = 70 + Math.random() * 100;
+    s.style.setProperty('--dx', `${Math.cos(a) * d}px`); s.style.setProperty('--dy', `${Math.sin(a) * d}px`);
+    host.append(s); setTimeout(() => s.remove(), 1000);
+  }
+}
+
+function popsicle(r) {
+  const MAX = 6;
+  const MOUTH = ['M94 172Q110 192 126 172', 'M94 176Q110 188 126 176', 'M94 180H126', 'M94 184Q110 170 126 184'];
+  const SUN = ['#ffd23f', '#ffc02a', '#ffa31a', '#ff8a0a', '#ff6a00', '#ff4500', '#ff2d1a'];
+  const AURA = ['#27e8ff88', '#27e8ff66', '#c7a0ff66', '#ff4fd877', '#ff8a3d88', '#ff5a3d88', '#ff2d1a88'];
+  let round = 0, word, got, wrong, over;
+  r.innerHTML = `<div class="stage"><div class="halo"></div><div class="aura"></div>${POP_SVG}<div class="fx"></div></div>
+    <p class="hint"></p><div class="word"></div><p class="fb"></p><div class="keys"></div>
+    <div class="row"><button class="btn" data-re>🔄 Reintentar</button><button class="btn go" data-nx hidden>Siguiente palabra ➜</button></div>`;
+  const stage = $('.stage', r), svg = $('.pop', r), fx = $('.fx', r), fb = $('.fb', r), keys = $('.keys', r), box = $('.word', r);
+  const paint = (lv = wrong) => {
+    box.innerHTML = [...word.w].map(c => c === ' ' ? '<i></i>' : `<b>${got.has(c) ? c : ''}</b>`).join('');
+    const move = `translateY(${lv * 38}px)`;
+    $('#cut', r).style.transform = move; $('#rim', r).style.transform = move;
+    $('#pud', r).style.transform = `scaleX(${.1 + lv * .15})`;
+    $('#mouth', r).setAttribute('d', MOUTH[Math.min(3, Math.floor(lv / 1.5))]);
+    $('#disc', r).setAttribute('fill', SUN[lv]);
+    $('#sunw', r).style.transform = `scale(${1 + lv * .12})`;
+    stage.style.setProperty('--ac', AURA[lv]);
+    svg.classList.toggle('melting', lv > 0); svg.classList.toggle('sweaty', lv >= 2); svg.classList.toggle('crying', lv >= 4);
+  };
+  const start = () => {
+    word = POP_WORDS[round % POP_WORDS.length]; got = new Set(); wrong = 0; over = false;
+    svg.classList.remove('win'); stage.classList.remove('win'); fb.textContent = ''; $('[data-nx]', r).hidden = true;
+    $('.hint', r).textContent = `Pista: ${word.h}`;
+    keys.innerHTML = '';
+    for (let c = 65; c < 91; c++) { const ch = String.fromCharCode(c), k = el('button', 'k', ch); k.onclick = () => guess(ch, k); keys.append(k); }
+    paint();
+  };
+  const win = () => {
+    over = true; svg.classList.add('win'); stage.classList.add('win'); paint(0);
+    fb.textContent = '¡Salvaste la paleta! 🍦🎉'; Sfx.win(); Voice.say(word.w.toLowerCase());
+    [0, 350, 700].forEach(t => setTimeout(() => burst(fx, ['✨', '⭐', '🎉', '🍦', '💖', '❄️'], 14), t));
+    confetti(40); App.finish('pop'); $('[data-nx]', r).hidden = false;
+  };
+  const guess = (ch, k) => {
+    if (over) return;
+    k.disabled = true;
+    if (word.w.includes(ch)) { got.add(ch); k.classList.add('hit'); Sfx.ok(); burst(fx, ['✨', '⭐'], 6); }
+    else {
+      wrong++; k.classList.add('miss'); Sfx.bad(); burst(fx, ['💧', '💦'], 6);
+      svg.classList.remove('hit'); void svg.getBoundingClientRect(); svg.classList.add('hit');
+    }
+    paint();
+    if ([...word.w].every(c => c === ' ' || got.has(c))) win();
+    else if (wrong >= MAX) { over = true; fb.textContent = '¡Se derritió! 😢 Pulsa “Reintentar”.'; }
+  };
+  $('[data-re]', r).onclick = start;
+  $('[data-nx]', r).onclick = () => { round++; start(); };
+  start();
+}
+
+function finale(r) {
+  const names = { vocab: 'Vocabulario', quiz: 'Quiz', match: 'Emparejar', scr: 'Revoltijo', ws: 'Sopa de letras', mem: 'Memoria', pop: 'Paleta', ear: 'Escucha', tf: 'V o F' };
+  const total = Object.keys(names).length, n = Object.keys(names).filter(k => App.done.has(k)).length;
+  r.innerHTML = `<div class="res"><div class="big">🏆</div><h3>${n === total ? '¡Lo lograste! Eres un campeón o campeona de los adverbios interrogativos' : '¡Buen trabajo! Aún puedes completar las actividades que faltan'}</h3>
+    <p>Completaste ${n} de ${total} actividades.</p><ul class="chk">${Object.entries(names).map(([k, v]) => `<li class="${App.done.has(k) ? 'y' : ''}">${App.done.has(k) ? '✅' : '⏳'} ${v}</li>`).join('')}</ul>
+    <p>Repasa: <b>Where</b> (lugar) · <b>When</b> (tiempo) · <b>Why</b> (razón) · <b>How</b> (manera) · <b>How many / much / old</b> (cantidad, precio, edad).</p>
+    <div class="row"><button class="btn big" data-say>🔊 Escuchar un ejemplo</button><button class="btn go big" data-go>🔁 Volver al inicio</button></div></div>`;
+  $('[data-say]', r).onclick = () => Voice.say('Where do you live? When is your birthday? How old are you? Great job!');
+  $('[data-go]', r).onclick = () => App.go(0);
+  Sfx.win(); confetti(60);
+}
+
+function confetti(count) {
+  const em = ['🎉', '⭐', '🍦', '☀️', '🌴', '💖', '✨'];
+  for (let i = 0; i < count; i++) {
+    const s = el('span', 'conf', em[i % em.length]);
+    s.style.cssText = `left:${Math.random() * 100}vw;font-size:${18 + Math.random() * 18}px;animation-duration:${2 + Math.random() * 2.5}s;animation-delay:${Math.random() * .8}s`;
+    document.body.append(s); setTimeout(() => s.remove(), 5500);
+  }
+}
+
+/* ---------- Registro de secciones y aplicación ---------- */
+const SECTIONS = [
+  { id: 'inicio', icon: '🏠', label: 'Inicio', title: 'Bienvenidos al verano inglés', ins: 'Lee con calma o pulsa el botón para escuchar.', run: intro },
+  { id: 'vocab', icon: '📖', label: 'Vocabulario', title: 'Vocabulario', ins: 'Toca los botones 🔊 para escuchar la pronunciación en inglés americano.', run: vocab },
+  { id: 'quiz', icon: '🧠', label: 'Quiz', title: 'Quiz', ins: 'Elige la palabra interrogativa que completa cada pregunta y pulsa “Comprobar”.', run: r => new Quiz(r, QUIZ, 'quiz') },
+  { id: 'match', icon: '🔗', label: 'Emparejar', title: 'Emparejar', ins: 'Toca una palabra en inglés y luego su significado en español.', run: match },
+  { id: 'scr', icon: '🔀', label: 'Revoltijo', title: 'Revoltijo', ins: 'Ordena las palabras para formar la pregunta en inglés.', run: scramble },
+  { id: 'ws', icon: '🔎', label: 'Sopa de letras', title: 'Sopa de letras', ins: 'Encuentra las palabras de la lista. Están en horizontal (→) o vertical (↓).', run: wordSearch },
+  { id: 'mem', icon: '🃏', label: 'Memoria', title: 'Memoria', ins: 'Encuentra cada palabra en inglés con su pareja en español.', run: memory },
+  { id: 'pop', icon: '🍦', label: 'Paleta', title: 'Salva la paleta', ins: 'Adivina la palabra letra por letra. ¡Cada error derrite más la paleta!', run: popsicle },
+  { id: 'ear', icon: '🎧', label: 'Escucha', title: 'Escucha', ins: 'Presiona 🔊, escucha la pregunta en inglés y elige la respuesta.', run: r => new Quiz(r, LISTEN, 'ear') },
+  { id: 'tf', icon: '✅', label: 'V o F', title: 'Verdadero o falso', ins: 'Decide si cada afirmación es verdadera o falsa y pulsa “Comprobar”.', run: r => new Quiz(r, TF, 'tf') },
+  { id: 'end', icon: '🏆', label: 'Final', title: '¡Felicitaciones!', ins: 'Este es el resumen de tu aventura.', run: finale }
+];
+
+const App = {
+  i: 0,
+  done: new Set(),
+  init() {
+    const menu = $('#menu');
+    SECTIONS.forEach((s, k) => {
+      const b = el('button', 'mbtn', `<i>${s.icon}</i><span>${s.label}</span><b></b>`);
+      b.dataset.id = s.id; b.onclick = () => { Sfx.pop(); this.go(k); }; menu.append(b);
+    });
+    $('#prev').onclick = () => this.go(this.i - 1);
+    $('#next').onclick = () => this.go(this.i + 1);
+    const fl = $('#float');
+    ['☀️', '🍦', '🌴', '🏖️', '🍉', '🐚', '🕶️', '🌊'].forEach((e, k) => {
+      const s = el('span', '', e); s.style.cssText = `left:${k * 12.5 + 3}%;font-size:${26 + (k % 3) * 10}px;animation-duration:${18 + k * 3}s;animation-delay:-${k * 4}s`; fl.append(s);
+    });
+    this.go(0);
+  },
+  go(k) {
+    if (k < 0 || k >= SECTIONS.length) return;
+    this.i = k;
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    const s = SECTIONS[k], card = $('#card');
+    card.style.animation = 'none'; void card.offsetWidth; card.style.animation = '';
+    card.innerHTML = `<h2>${s.icon} ${s.title}</h2><p class="ins">${s.ins}</p><div id="body"></div>`;
+    s.run($('#body', card));
+    this.refresh();
+    $('#menu').children[k].scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  },
+  finish(id) { this.done.add(id); this.refresh(); },
+  refresh() {
+    [...$('#menu').children].forEach((b, k) => {
+      b.classList.toggle('on', k === this.i);
+      const d = this.done.has(b.dataset.id); b.classList.toggle('done', d); $('b', b).textContent = d ? '✓' : '';
+    });
+    $('#prev').style.visibility = this.i ? 'visible' : 'hidden';
+    $('#next').style.visibility = this.i < SECTIONS.length - 1 ? 'visible' : 'hidden';
+  }
+};
+App.init();
+</script>
+</body>
+</html>
